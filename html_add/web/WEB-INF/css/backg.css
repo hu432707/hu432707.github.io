@@ -1,0 +1,26 @@
+
+body{
+//background: #6fffa9;
+    background-image: url("https://i.loli.net/2019/07/07/5d20de598807b39684.jpg");
+}
+.add1{
+    float: left;
+    width:25%;
+    font-size: 25px
+}
+.mul1{
+    float: right;
+    width:25%;
+    font-size: 25px;
+}
+.add{
+    float: left;
+    width: 25%;
+    font-size: 30px;
+}
+
+.mul{
+    float: right;
+    width: 25%;
+    font-size: 30px;
+}
