@@ -1,0 +1,53 @@
+body{
+    /*background: #6fffa9;*/
+    background-image: url("https://i.loli.net/2019/07/07/5d20de598807b39684.jpg");
+    /*background-image: url("https://i.loli.net/2019/07/07/5d2169ccf3ce218567.jpg");*/
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
+.input1{
+    background-color:transparent;
+    width: 200px;
+    height: 50px;
+    font-size: 40px;
+    color: #2cfff5;
+}
+.input2{
+    background-color:transparent;
+    width: 200px ;
+    height: 50px;
+    font-size: 40px;
+    color: #2cfff5;
+}
+.add1{
+    float: left;
+    width:25%;
+    font-size: 25px;
+    position:relative;
+    left: 22%;
+    color: yellow;
+}
+.mul1{
+    float: right;
+    width: 25%;
+    position: relative;
+    left: 13%;
+    font-size: 25px;
+    color: yellow;
+}
+.add{
+    float: left;
+    width: 25%;
+    position:relative;
+    left: 6%;
+    font-size: 25px;
+    color: yellow;
+}
+
+.mul{
+    float: right;
+    width: 25%;
+    position:relative;
+    font-size: 25px;
+    color: yellow;
+}
