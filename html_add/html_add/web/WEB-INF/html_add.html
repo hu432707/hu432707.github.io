@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html_add</title>
+    <!--<link rel="stylesheet" href="css/backg.css">-->
+</head>
+<body >
+<br>
+    <div style="text-align: center;font-size: 30px;color: #ff5202">
+        本网页进行加法运算，在输入框中输入数字即可得到结果！
+    </div>
+<br>
+<br>
+    <div  style= "font-size:20px ;text-align: center">
+        数字一:</div>
+<br>
+    <div style="text-align:center">
+        <input id="s1" style="background-color:transparent;
+        width:200px;height: 50px;font-size: 40px" name="s1">
+    </div>
+<br>
+<br>
+    <div style="font-size: 20px ;text-align: center">
+        数字二：</div>
+<br>
+    <div style="text-align:center">
+        <input id="s2" style="background-color:transparent;
+        width:200px ;height: 50px;font-size: 40px" name="s2">
+    </div>
+<br>
+<br>
+    <div class="add1" >
+        和：
+    </div>
+
+    <div id="add" class="add" >
+        0
+        </div>
+
+    <div id="mul"class="mul">
+        0
+    </div>
+
+    <div class="mul1" >
+    乘积：
+    </div>
+
+</body>
+<style type="text/css">
+    body{
+        /*background: #6fffa9;*/
+        /*background-image: url("https://i.loli.net/2019/07/07/5d20de598807b39684.jpg");*/
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-image: url("https://i.loli.net/2019/07/07/5d2169ccf3ce218567.jpg");
+    }
+    .add1{
+        float: left;
+        width:25%;
+        font-size: 25px;
+        position:relative;
+        left:200px;
+       }
+    .mul1{
+        float: right;
+        width:25%;
+        position:relative;
+        left:180px;
+        font-size: 25px;
+    }
+    .add{
+        float: left;
+        width: 25%;
+        font-size: 30px;
+    }
+
+    .mul{
+        float: right;
+        width: 25%;
+        font-size: 30px;
+    }
+
+</style>
+<script>
+    var  s1 = document.getElementById("s1");
+    var  s2 = document.getElementById("s2");
+    var  add = document.getElementById("add");
+    var mul = document.getElementById("mul");
+
+
+    if("oninput" in s1){
+        s1.addEventListener("input",getWord,false);
+    } else {
+        s1.onpropertychange = getWord;
+    }
+    if("oninput" in s2){
+        s2.addEventListener("input",getWord,false);
+    } else {
+        s2.onpropertychange = getWord;
+    }
+    //判断值是否为空，怎么显示，避免出现“NaN”
+    function getWord(){
+        if(s1.value === "" && s2.value === "") {
+            add.innerHTML = "0";
+        } else if (s2.value === "") {
+            add.innerHTML = parseInt(s1.value)+0;
+            mul.innerHTML = parseInt(s1.value)*0;
+        } else if(s1.value === ""){
+            add.innerHTML = parseInt(s2.value)+0;
+            mul.innerHTML = parseInt(s2.value)*0;
+        } else  {
+            add.innerHTML = parseInt(s1.value) + parseInt(s2.value);
+            mul.innerHTML = parseInt(s1.value) * parseInt(s2.value);
+        }
+    }
+</script>
+</html>

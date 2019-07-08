@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>html_1</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <link rel="stylesheet" href="css/backg.css">
+</head>
+<body >
+<br>
+<div style="text-align: center;font-size: 30px;color: #ff630d">
+    本网页进行加法及乘法运算，在输入框中输入数字即可得到结果！
+</div>
+<br>
+<br>
+<div  style= "font-size:20px ;text-align: center ;color: #008dff" >
+    数字一 ：</div>
+<br>
+<div style="text-align:center" id="s1">
+    <label>
+        <input  class="input1"  type="text" maxlength="7" v-model="s1" >
+    </label>
+</div>
+<br>
+<br>
+<div style="font-size: 20px ;text-align: center;color: #008dff">
+    数字二 ：</div>
+<br>
+<div style="text-align:center" id="s2">
+    <label>
+        <input class="input2" type="text" maxlength="7" v-model="s2" />
+        </label>
+</div>
+<br>
+<br>
+<div class="add1" >
+    和：
+</div>
+
+<div id="add" class="add" >
+    {{add}}
+</div>
+
+<div id="mul" class="mul">
+    {{mul}}
+</div>
+
+<div class="mul1" >
+    乘积：
+</div>
+
+</body>
+<script src="js/Vue.js">
+
+</script>
+</html>
