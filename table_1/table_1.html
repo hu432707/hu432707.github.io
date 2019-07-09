@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Table_1</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.0.11/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui@2.0.11/lib/index.js"></script>
+</head>
+<body>
+<div id="app">
+    <template>
+        <el-table :data="tableData3" style="width: 100%">
+            <el-table-column
+                    type="index"
+                    :index="indexMethod">
+            </el-table-column >
+            <el-table-column
+                    label="字段"
+                    align="center"
+            >
+                <el-table-column
+                        prop="name"
+                        label="列名"
+                        width="120"
+                        align="center"
+                >
+                </el-table-column>
+                    <el-table-column prop="description" label="列说明" width="120" align="center">
+                    </el-table-column>
+                    <el-table-column prop="Field_type" label="字段类型" width="120" align="center">
+                    </el-table-column>
+                    <el-table-column prop="Attr_type" label="属性类型" width="100" align="center">
+                    </el-table-column>
+                    <el-table-column prop="Attr_name" label="属性名称" width="120" align="center">
+                    </el-table-column>
+                <el-table-column prop="key" label="主键" width="120" align="center">
+                </el-table-column>
+                <el-table-column prop="insert" label="插入" width="120" align="center">
+                </el-table-column>
+                <el-table-column prop="update" label="更新" width="120" align="center">
+                </el-table-column>
+
+                </el-table-column>
+        </el-table>
+    </template>
+</div>
+</body>
+<script src="js/Jtab_1.js"></script>
+</html>
