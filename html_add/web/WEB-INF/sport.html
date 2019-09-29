@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>微信步数修改</title>
+    <!--<script src="https://vuejs.org/js/vue.min.js"></script>-->
+    <!--开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="css/view.css">
+
+</head>
+<body>
+  <div id="recover">
+    <template>
+        <el-row class="bg-full">
+          <el-card class="box-center">
+            <el-form :model="form" :rules="formRules" ref="form" label-position="left" label-width="0" class="login-container">
+              <h2 class="title">微信布数修改</h2>
+              <el-form-item prop="user">
+                <el-input type="text" v-model="form.user" auto-complete="off" placeholder="卓易账号" class="inputcss"></el-input>
+              </el-form-item>
+              <el-form-item prop="walk">
+                <el-input type="text" v-model.number="form.walk" auto-complete="off" placeholder="步数"  class="inputcss"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button class="width-full" type="danger" @click ="formSubmit" :loading="formLoading" style="width: 80px" >提交</el-button>
+				<el-button class="width-full" type="info" @click="resetForm('form')" style="width: 80px">重 置</el-button>
+			  </el-form-item>
+            </el-form>
+          </el-card>
+        </el-row>
+      </template>
+    </div>
+</body>
+<style >
+  body{
+    background-color: rgb(55, 131, 108)
+  }
+    .title {
+      color:rgb(202, 95, 52);
+    }
+    .inputcss{
+      width: 70% ;
+    }
+    .bg-full{
+      /* background-repeat: no-repeat;
+      background-size: 100%;
+      background-image: url( "https://i.loli.net/2019/09/24/7tTncpbLsdS1zJg.jpg"); */
+      margin-top: 10%;
+      width: 70%;
+      text-align: center;
+      left: 15%;
+    }
+  </style>
+
+<script>
+var Main = {
+    methods: {
+        formSubmit() {
+        let me = this;
+      me.$refs.form.validate((valid) => {
+        if (valid) {
+          me.formLoading = true
+          axios
+            .get('https://dsadsadsd.000webhostapp.com/api.php?type=sport', {params:me.form})
+            .then( res =>{
+                    me.formLoading = false;
+                    me.$message({ message: '步数修改成功', type: "success" });
+                    me.$refs["form"].resetFields();
+            })
+            .catch(error => {
+                console.log(error);
+                    me.$message.error( '步数修改失败');
+                    me.editFormLoading = false;
+              });
+        }
+      })
+    },
+	resetForm(formName) {
+        this.$refs[formName].resetFields();
+        this.$message({ message: "重置成功", type: "success" });
+      }
+},
+data() {
+  var checkNum = (rule, value, callback) => {
+        if (!value) {
+          return callback(new Error('步数不能为空'));
+        }
+          if (!Number.isInteger(value)) {
+            callback(new Error('请输入数字'));
+          } else {
+              if (value <-1 || value >35420) {
+                callback(new Error('步数不符合要求'));
+              } else {
+                callback();
+              }
+            }
+          };
+    return {
+      formLoading: false,
+      form: {
+        user: '17873832508',
+        walk: ''
+      },
+      formRules: {
+        user: [
+          { required: true, message: '请输入账号', trigger: 'blur' }
+        ],
+        walk: [
+          { required: true, message: '请输入步数', trigger: 'blur' },
+          { validator: checkNum }
+        ]
+      }
+    }
+  },
+};
+var Ctor = Vue.extend(Main);
+new Ctor().$mount('#recover');
+</script>
+</html>
